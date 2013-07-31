@@ -148,7 +148,10 @@
     <Compile Include="Infrastructure\Data\IDbContext.cs" />
     <Compile Include="Infrastructure\Data\IRepository.cs" />
     <Compile Include="Infrastructure\Data\ThursdayContext.cs" />
+    <Compile Include="Infrastructure\Extensions\UserExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\PresentationExtensions.cs" />
+    <Compile Include="Infrastructure\Services\IUserRoleService.cs" />
+    <Compile Include="Infrastructure\Services\UserRoleService.cs" />
     <Compile Include="Infrastructure\Services\IPresentationService.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -158,6 +161,8 @@
     <Compile Include="Infrastructure\Services\PresentationService.cs" />
     <Compile Include="Infrastructure\Services\Security\EncryptionService.cs" />
     <Compile Include="Infrastructure\Services\Security\IEncryptionService.cs" />
+    <Compile Include="Infrastructure\UserRoleNames.cs" />
+    <Compile Include="Infrastructure\Validation\RegisterValidator.cs" />
     <Compile Include="Infrastructure\Validation\LoginValidator.cs" />
     <Compile Include="Infrastructure\Validation\PresentationEditValidator.cs" />
     <Compile Include="Migrations\201307251136474_Initial.cs" />
@@ -208,6 +213,7 @@
     </Content>
     <Content Include="Views\Presentation\create.cshtml" />
     <Content Include="Views\Presentation\view.cshtml" />
+    <Content Include="Views\Index\register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

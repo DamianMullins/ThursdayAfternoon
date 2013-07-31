@@ -3,6 +3,7 @@ using Nancy.Authentication.Forms;
 using Nancy.ModelBinding;
 using Nancy.Validation;
 using System;
+using ThursdayAfternoon.Infrastructure.Extensions;
 using ThursdayAfternoon.Infrastructure.Services;
 using ThursdayAfternoon.Infrastructure.Services.Security;
 using ThursdayAfternoon.Models;
@@ -62,19 +63,19 @@ namespace ThursdayAfternoon.Nancy.Modules
                 return this.LogoutAndRedirect("~/");
             };
 
-            Get["/register"] = _ => "TODO";
+            Get["/register"] = _ => View["register", new RegisterViewModel()];
             Post["/register"] = _ =>
             {
-                var model = this.Bind<RegisterViewModel>();
-                // TODO: Move this out to user service
-                var user = new User();
-                string saltKey = _encryptionService.CreateSaltKey(5);
+                RegisterViewModel model = this.Bind();
+                ModelValidationResult result = this.Validate(model);
+                if (result.IsValid)
+                {
+                    User user = model.Bind();
+                    _userService.Register(user, model.Password);
 
-                // Generate salt & hash values
-                user.PasswordSalt = saltKey;
-                user.PasswordHash = _encryptionService.CreatePasswordHash(model.Password, saltKey);
-
-                return "TODO";
+                    return Response.AsRedirect("/presentation");
+                }
+                return View["register", model];
             };
         }
     }

@@ -13,6 +13,7 @@ namespace ThursdayAfternoon.Infrastructure.Services
         void Update(User user);
         void Delete(User user);
 
+        void Register(User user, string password);
         Guid? AuthenticateUser(string username, string password);
     }
 }

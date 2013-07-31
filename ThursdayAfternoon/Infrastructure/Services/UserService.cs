@@ -12,6 +12,7 @@ namespace ThursdayAfternoon.Infrastructure.Services
     public class UserService : IUserService, IUserMapper
     {
         private readonly IRepository<User> _userRepository;
+        private readonly IRepository<UserRole> _userRoleRepository;
         private readonly IEncryptionService _encryptionService;
 
         public IQueryable<User> Table
@@ -19,9 +20,10 @@ namespace ThursdayAfternoon.Infrastructure.Services
             get { return _userRepository.Table; }
         }
 
-        public UserService(IRepository<User> userRepository, IEncryptionService encryptionService)
+        public UserService(IRepository<User> userRepository, IRepository<UserRole> userRoleRepository, IEncryptionService encryptionService)
         {
             _userRepository = userRepository;
+            _userRoleRepository = userRoleRepository;
             _encryptionService = encryptionService;
         }
 
@@ -32,7 +34,9 @@ namespace ThursdayAfternoon.Infrastructure.Services
 
         public void Insert(User user)
         {
+            user.Identifier = Guid.NewGuid();
             user.CreatedOn = DateTime.Now;
+            user.ModifiedOn = DateTime.Now;
             _userRepository.Insert(user);
         }
 
@@ -67,6 +71,17 @@ namespace ThursdayAfternoon.Infrastructure.Services
             return null;
         }
 
+        public void Register(User user, string password)
+        {
+            // Generate salt & hash values
+            string saltKey = _encryptionService.CreateSaltKey(5);
+            user.PasswordSalt = saltKey;
+            user.PasswordHash = _encryptionService.CreatePasswordHash(password, saltKey);
+            //Add to users role
+            user.Roles.Add(GetUserRoleByName(UserRoleNames.Users));
+            this.Insert(user);
+        }
+
         #region IUserMapper Implementation
 
         public IUserIdentity GetUserFromIdentifier(Guid identifier, NancyContext context)
@@ -76,5 +91,10 @@ namespace ThursdayAfternoon.Infrastructure.Services
         }
 
         #endregion
+
+        private UserRole GetUserRoleByName(string roleName)
+        {
+            return _userRoleRepository.Table.FirstOrDefault(r => r.Name == roleName);
+        }
     }
 }

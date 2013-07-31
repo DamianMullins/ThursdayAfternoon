@@ -12,7 +12,7 @@
         <form class="@Url.Content("~/login")" method="post">
             <h2 class="form-signin-heading">Please sign in</h2>
 
-            @Html.TextBox("Username", "input-block-level", "Email Address")
+            @Html.TextBox("Username", "input-block-level", "Username")
             @Html.Password("Password", "input-block-level", "Password")
             <label class="checkbox" for="RememberMe">
                 @Html.CheckBox("RememberMe", true) Remember me
@@ -20,5 +20,7 @@
 
             <button class="btn btn-inverse" type="submit">Sign in</button>
         </form>
+        
+        <a href="/register">Register &rarr;</a>
     </div>
 </div>
