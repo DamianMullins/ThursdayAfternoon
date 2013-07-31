@@ -6,6 +6,7 @@ using System.Linq;
 using ThursdayAfternoon.Infrastructure.Data;
 using ThursdayAfternoon.Infrastructure.Services.Security;
 using ThursdayAfternoon.Models;
+using Utilities.Core.Text;
 
 namespace ThursdayAfternoon.Infrastructure.Services
 {
@@ -69,6 +70,12 @@ namespace ThursdayAfternoon.Infrastructure.Services
                 return user.Identifier;
             }
             return null;
+        }
+
+        public bool UserNameExists(string userName)
+        {
+            string username = _userRepository.Table.Where(u => u.UserName == userName).Select(u => u.UserName).FirstOrDefault();
+            return username.IsNotEmpty();
         }
 
         public void Register(User user, string password)

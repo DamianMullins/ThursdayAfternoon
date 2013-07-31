@@ -15,5 +15,6 @@ namespace ThursdayAfternoon.Infrastructure.Services
 
         void Register(User user, string password);
         Guid? AuthenticateUser(string username, string password);
+        bool UserNameExists(string userName);
     }
 }

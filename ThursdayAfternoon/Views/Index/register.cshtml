@@ -5,17 +5,14 @@
     Layout = "shared/_layout";
 }
 
-<h2>Login</h2>
+<h2>Register</h2>
 <div class="row-fluid">
     <div class="span4">
         @Html.ValidationSummary()
         <form class="@Url.Content("~/register")" method="post">
-            <h2 class="form-signin-heading">Register</h2>
-
-            @Html.TextBox("Username", "input-block-level", "Username")
+            @Html.TextBox("Username", "input-block-level", "Email Address")
             @Html.Password("Password", "input-block-level", "Password")
             @Html.Password("ConfirmPassword", "input-block-level", "Confirm Password")
-            @Html.TextBox("Email", "input-block-level", "Email Address")
 
             <button class="btn btn-inverse" type="submit">Register</button>
         </form>
