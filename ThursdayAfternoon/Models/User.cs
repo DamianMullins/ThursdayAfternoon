@@ -13,7 +13,6 @@ namespace ThursdayAfternoon.Models
         public Guid Identifier { get; set; }
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
-        public string Email { get; set; }
         public bool Active { get; set; }
         public DateTime? LastLoginDate { get; set; }
 

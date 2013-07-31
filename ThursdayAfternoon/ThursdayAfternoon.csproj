@@ -177,6 +177,10 @@
     <Compile Include="Migrations\201307301513089_Presentation_Add_Description.Designer.cs">
       <DependentUpon>201307301513089_Presentation_Add_Description.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201307311303262_User_Remove_Email.cs" />
+    <Compile Include="Migrations\201307311303262_User_Remove_Email.Designer.cs">
+      <DependentUpon>201307311303262_User_Remove_Email.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Nancy\CustomRootPathProvider.cs" />
@@ -230,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201307301513089_Presentation_Add_Description.resx">
       <DependentUpon>201307301513089_Presentation_Add_Description.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201307311303262_User_Remove_Email.resx">
+      <DependentUpon>201307311303262_User_Remove_Email.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
