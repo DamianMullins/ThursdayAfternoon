@@ -1,0 +1,27 @@
+﻿@inherits NancyRazorViewBase<ThursdayAfternoon.ViewModels.Presentation.ViewPresentationViewModel>
+@{
+    Layout = "shared/_layout";
+    ViewBag.Title = "Edit" + @Model.Title;
+}
+
+<div class="row">
+    <div class="span12">
+        <h1 class="page-title">@Model.Title</h1>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span4">
+        <h3>Info</h3>
+        <p>Created: @Model.CreatedOn<br />
+            Last Modified: @Model.ModifiedOn<br />
+            Owner: --</p>
+
+        <p>Slides: --</p>
+    </div>
+    <div class="span8">
+    <form class="@Url.Content("~/presentation/edit/" + @Model.Id)" method="post">
+        <p>@Model.Description</p>
+    </form>
+    </div>
+</div>

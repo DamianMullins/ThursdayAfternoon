@@ -1,0 +1,24 @@
+﻿@using ThursdayAfternoon.Nancy.Extensions
+@inherits NancyRazorViewBase<ThursdayAfternoon.ViewModels.Index.LoginViewModel>
+@{
+    ViewBag.Title = "Login";
+    Layout = "shared/_layout";
+}
+
+<h2>Login</h2>
+<div class="row-fluid">
+    <div class="span4">
+        @Html.ValidationSummary()
+        <form class="@Url.Content("~/login")" method="post">
+            <h2 class="form-signin-heading">Please sign in</h2>
+
+            @Html.TextBox("Username", "input-block-level", "Email Address")
+            @Html.Password("Password", "input-block-level", "Password")
+            <label class="checkbox" for="RememberMe">
+                @Html.CheckBox("RememberMe", true) Remember me
+            </label>
+
+            <button class="btn btn-inverse" type="submit">Sign in</button>
+        </form>
+    </div>
+</div>

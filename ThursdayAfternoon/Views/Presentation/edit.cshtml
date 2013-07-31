@@ -1,0 +1,31 @@
+﻿@using ThursdayAfternoon.Nancy.Extensions
+@inherits NancyRazorViewBase<ThursdayAfternoon.ViewModels.Presentation.EditViewModel>
+@{
+    Layout = "shared/_layout";
+    ViewBag.Title = "Edit" + @Model.Title;
+}
+
+<div class="row">
+    <div class="span12">
+        <h1 class="page-title">Edit @Model.Title</h1>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span4">
+        <p>Slides: --</p>
+    </div>
+    <div class="span8">
+        @Html.ValidationSummary()
+        <form class="@Url.Content("~/presentation/edit/" + @Model.Id)" method="post">
+            @Html.TextBox("Title", "input-block-level", "Title")
+            @Html.TextBox("Description", "input-block-level", "Description")
+            
+            @Html.Hidden("CreatedOn")
+            @Html.Hidden("ModifiedOn")
+            @Html.Hidden("OwnerId")
+            
+            <button class="btn btn-inverse" type="submit">Edit</button>
+        </form>
+    </div>
+</div>

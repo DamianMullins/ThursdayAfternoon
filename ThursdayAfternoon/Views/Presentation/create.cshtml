@@ -1,0 +1,24 @@
+﻿@inherits NancyRazorViewBase<ThursdayAfternoon.ViewModels.Presentation.EditViewModel>
+@{
+    Layout = "shared/_layout";
+    ViewBag.Title = "Create new presentation";
+}
+
+<div class="row">
+    <div class="span12">
+        <h1 class="page-title">Create new presentation</h1>
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span4">
+        <p>Slides: --</p>
+    </div>
+    <div class="span8">
+    <form class="@Url.Content("~/presentation/create/")" method="post">
+        <input type="text" name="Title" class="input-block-level" placeholder="Title" value="@Model.Title" />
+
+        <button class="btn btn-inverse" type="submit">Edit</button>
+    </form>
+    </div>
+</div>
