@@ -67,15 +67,17 @@ namespace ThursdayAfternoon.Nancy.Modules
             Post["/register"] = _ =>
             {
                 RegisterViewModel model = this.Bind();
+                
                 // Check username is unique
                 bool usernameExists = _userService.UserNameExists(model.UserName);
                 if (usernameExists)
                 {
                     this.AddValidationError("UserName", "Username already exists");
+                    return View["register", model];
                 }
-                ModelValidationResult result = this.Validate(model);
 
-                if (result.IsValid && !usernameExists)
+                ModelValidationResult result = this.Validate(model);
+                if (result.IsValid)
                 {
                     User user = model.Bind();
                     _userService.Register(user, model.Password);
