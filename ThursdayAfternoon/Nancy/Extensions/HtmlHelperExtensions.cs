@@ -42,7 +42,7 @@ namespace ThursdayAfternoon.Nancy.Extensions
             }
 
             var summaryBuilder = new StringBuilder();
-            summaryBuilder.Append(@"<ul class=""validation-summary-errors"">");
+            summaryBuilder.Append(@"<div class=""alert alert-danger""><ul class=""validation-summary-errors"">");
             foreach (var modelValidationError in validationResult.Errors)
             {
                 foreach (var memberName in modelValidationError.MemberNames)
@@ -50,7 +50,7 @@ namespace ThursdayAfternoon.Nancy.Extensions
                     summaryBuilder.AppendFormat("<li>{0}</li>", modelValidationError.GetMessage(memberName));
                 }
             }
-            summaryBuilder.Append(@"</ul>");
+            summaryBuilder.Append(@"</ul></div>");
 
             return new NonEncodedHtmlString(summaryBuilder.ToString());
         }

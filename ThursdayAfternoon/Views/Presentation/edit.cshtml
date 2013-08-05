@@ -5,28 +5,30 @@
     ViewBag.Title = "Edit" + @Model.Title;
 }
 
-<div class="row">
-    <div class="span12">
-        <h1 class="page-title">Edit @Model.Title</h1>
-    </div>
-</div>
+<h1>Edit @Model.Title</h1>
 
-<div class="row-fluid">
-    <div class="span4">
-        <p>Slides: --</p>
-    </div>
-    <div class="span8">
-        @Html.ValidationSummary()
+<div class="row">
+    <div class="col-lg-8">
         <form class="@Url.Content("~/presentation/edit/" + @Model.Id)" method="post">
-            @Html.TextBox("Title", "input-block-level", "Title")
-            @Html.TextBox("Description", "input-block-level", "Description")
-            
+            <div class="form-group">
+                <label for="Title">Title</label>
+                @Html.TextBox("Title", "form-control", "Title")
+            </div>
+
+            <div class="form-group">
+                <label for="Description">Description</label>
+                @Html.TextBox("Description", "form-control", "Description")
+            </div>
+
             @Html.Hidden("CreatedOn")
             @Html.Hidden("ModifiedOn")
             @Html.Hidden("OwnerId")
-            
-            <button class="btn btn-inverse" type="submit">Edit</button>
-            <a href="@Url.Content("~/presentation")" class="btn btn-inverse">Cancel</a>
+
+            <button class="btn btn-default" type="submit">Edit</button>
+            <a href="@Url.Content("~/presentation")" class="btn">Cancel</a>
         </form>
+    </div>
+    <div class="col-lg-4">
+        <p>Slides: --</p>
     </div>
 </div>

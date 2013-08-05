@@ -78,11 +78,8 @@ namespace ThursdayAfternoon.Migrations
                 .Index(t => t.User_Id)
                 .Index(t => t.UserRole_Id);
 
-
+            Sql("INSERT INTO dbo.Users ( UserName, Identifier, PasswordHash, PasswordSalt, Active, LastLoginDate, CreatedOn, ModifiedOn ) VALUES ( 'damian@lowflyingowls.co.uk', '{8DB5F881-5A47-4FF2-A518-CB8B6559EE59}', 'cb813c71-1cd3-42bb-bb07-0e3394d9ee60', 'JZE+JGA=', 1, null, GETDATE(), GETDATE() )");
             Sql("INSERT INTO dbo.UserRoles ( Name, Active, CreatedOn ) VALUES ( 'Admin', 1, GETDATE() ), ( 'User', 1, GETDATE() )");
-
-            Sql("INSERT INTO dbo.Users ( UserName, Identifier, PasswordHash, PasswordSalt, Email, Active, LastLoginDate, CreatedOn, ModifiedOn ) VALUES ( 'djmelonz', '{8DB5F881-5A47-4FF2-A518-CB8B6559EE59}', '3756EDB332DF48BDCCDBA876718975657CA1A28D', 'h2afxCQ=', 'damian@lowflyingowls.co.uk', 1, null, GETDATE(), GETDATE() )");
-
             Sql("INSERT INTO dbo.User_UserRole ( User_Id, UserRole_Id ) VALUES ( 1, 1 ), ( 1, 2 )");
         }
         

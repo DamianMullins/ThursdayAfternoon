@@ -5,18 +5,29 @@
     Layout = "shared/_layout";
 }
 
-<h2>Register</h2>
-<div class="row-fluid">
-    <div class="span4">
-        @Html.ValidationSummary()
-        <form class="@Url.Content("~/register")" method="post">
-            @Html.TextBox("Username", "input-block-level", "Email Address")
-            @Html.Password("Password", "input-block-level", "Password")
-            @Html.Password("ConfirmPassword", "input-block-level", "Confirm Password")
+<h1>Register</h1>
 
-            <button class="btn btn-inverse" type="submit">Register</button>
+<div class="row">
+    <div class="col-lg-4">
+        <form class="@Url.Content("~/register")" method="post">
+            <div class="form-group">
+                <label for="Username">Email Address</label>
+                @Html.TextBox("Username", "form-control", "Email Address")
+            </div>
+                
+            <div class="form-group">
+                <label for="Password">Password</label>
+                @Html.Password("Password", "form-control", "Password")
+            </div>
+                
+            <div class="form-group">
+                <label for="ConfirmPassword">Confirm Password</label>
+                @Html.Password("ConfirmPassword", "form-control", "Confirm Password")
+            </div>
+
+            <button class="btn btn-default" type="submit">Register</button>
         </form>
         
-        <a href="/register">Register &rarr;</a>
+        <a href="/login">&larr; Login</a>
     </div>
 </div>

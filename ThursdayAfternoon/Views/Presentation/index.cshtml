@@ -4,26 +4,23 @@
     Layout = "shared/_layout";
 }
 
-<div class="row">
-    <div class="span12">
-        <h1 class="page-title">@Model.User.UserName <small>@Model.Presentations.Count presentations</small></h1>
-    </div>
-</div>
+<h1>@Model.User.UserName <small>@Model.Presentations.Count presentations</small></h1>
 
-<div class="row-fluid">
-    <div class="span4">
+<div class="row">
+    <div class="col-lg-4">
         <h2>Presentations</h2>
-        <p><a href="@Url.Content("~/presentation/create")" class="btn btn-inverse">Create new</a></p>
+
         <ul>
             @foreach (var presentation in Model.Presentations)
             {
                 <li><a href="@Url.Content("~/presentation/view/" + presentation.Id)">@presentation.Title</a> <small><a href="@Url.Content("~/presentation/edit/" + presentation.Id)">edit</a></small></li>
             }
         </ul>
+
+        <p><a href="@Url.Content("~/presentation/create")" class="btn btn-default btn-mini">Create new</a></p>
     </div>
-    <div class="span8">
+    <div class="col-lg-8">
         <h2>Heading</h2>
         <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn" href="#">View details &raquo;</a></p>
     </div>
 </div>

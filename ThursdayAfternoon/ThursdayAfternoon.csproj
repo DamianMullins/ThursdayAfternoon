@@ -114,16 +114,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-overrides.css" />
-    <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\bootstrap-glyphicons.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\fonts\glyphiconshalflings-regular.svg" />
     <Content Include="Content\images\bgnoise_lg_dark.png" />
-    <Content Include="Content\images\glyphicons-halflings-white.png" />
-    <Content Include="Content\images\glyphicons-halflings.png" />
-    <Content Include="Scripts\bootstrap.min.js.map">
-      <DependentUpon>bootstrap.js</DependentUpon>
-    </Content>
+    <Content Include="Content\fonts\glyphiconshalflings-regular.woff" />
+    <Content Include="Content\fonts\glyphiconshalflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphiconshalflings-regular.otf" />
+    <Content Include="Content\fonts\glyphiconshalflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\app.css" />
     <Content Include="Scripts\app.js" />

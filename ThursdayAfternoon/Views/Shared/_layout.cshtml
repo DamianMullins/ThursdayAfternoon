@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ThursdayAfternoon.Nancy.Extensions
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -8,8 +9,7 @@
 
     @{
         WriteLiteral(Bundle.Css()
-            .Add("~/content/bootstrap.css")
-            .Add("~/content/bootstrap-responsive.css")
+            .Add("~/content/bootstrap/bootstrap.css")
             .Add("~/content/bootstrap-overrides.css")
             .Add("~/content/app.css")
             .Render("~/content/thursday_#.css"));
@@ -19,6 +19,7 @@
     @Html.Partial("shared/_navbar")
 
     <div class="container">
+        @Html.ValidationSummary()
         @RenderBody()
     </div>
 

@@ -13,9 +13,37 @@ body {
   font-size: 16px;
 }
 
+
+/***** Forms ******************************/
+
+label {
+  font-weight: normal;
+}
+
+.form-control:focus {
+  border-color: transparent;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-default {
+  color: #ffffff;
+  background-color: #de5e60;
+  border-color: #de5e60;
+}
+
+  .btn-default:hover,
+  .btn-default:focus,
+  .btn-default:active,
+  .btn-default.active {
+    background-color: #de5e60;
+    border-color: #de5e60;
+  }
+
 /***** Navbar ******************************/
 
-.navbar-inner {
+.navbar {
   background: #26292e;
   border: none;
   -webkit-box-shadow: 0 1px 1px #000000;
@@ -27,37 +55,38 @@ body {
   position: relative;
 }
 
-.navbar .brand {
-  -webkit-text-shadow: none;
-  text-shadow: none;
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 1.5em;
-}
-
-.navbar .nav > li > a {
-  color: #fff;
-  font-size: 16px;
-  -webkit-text-shadow: none;
-  text-shadow: none;
-  text-transform: uppercase;
-  -webkit-transition: color 0.1s linear 0;
-  -moz-transition: color 0.1s linear 0;
-  -o-transition: color 0.1s linear 0;
-  transition: color 0.1s linear 0;
-}
-
-  .navbar .nav > li > a:focus,
-  .navbar .nav > li > a:hover {
-    color: #de5e60;
+  .navbar .navbar-brand {
+    color: #fff;
+    font-size: 1.5em;
+    max-width: none;
+    -webkit-text-shadow: none;
+    text-shadow: none;
+    text-transform: uppercase;
   }
 
-.navbar .nav > .active > a,
-.navbar .nav > .active > a:hover,
-.navbar .nav > .active > a:focus {
-  background-color: transparent;
-  color: #de5e60;
-}
+  .navbar .nav > li > a {
+    color: #fff;
+    font-size: 16px;
+    -webkit-text-shadow: none;
+    text-shadow: none;
+    text-transform: uppercase;
+    -webkit-transition: color 0.1s linear 0;
+    -moz-transition: color 0.1s linear 0;
+    -o-transition: color 0.1s linear 0;
+    transition: color 0.1s linear 0;
+  }
+
+    .navbar .nav > li > a:focus,
+    .navbar .nav > li > a:hover {
+      color: #de5e60;
+    }
+
+  .navbar .nav > .active > a,
+  .navbar .nav > .active > a:hover,
+  .navbar .nav > .active > a:focus {
+    background-color: transparent;
+    color: #de5e60;
+  }
 
 .container {
   padding: 10px;
