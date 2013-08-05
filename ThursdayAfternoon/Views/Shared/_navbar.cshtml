@@ -1,4 +1,5 @@
-﻿@using ThursdayAfternoon.Nancy.Extensions
+﻿@using ThursdayAfternoon.Infrastructure.Extensions
+@using ThursdayAfternoon.Nancy.Extensions
 
 <div class="navbar">
     <div class="container">
@@ -17,7 +18,7 @@
                 @if (Html.IsAuthenticated)
                 {
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Html.User().UserName <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Html.User().GetName(fullname: true) <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Settings</a></li>
                             <li class="divider"></li>
