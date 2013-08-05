@@ -1,8 +1,8 @@
-﻿html, 
+﻿html,
 body {
-   margin:0;
-   padding:0;
-   height:100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 body {
@@ -18,10 +18,21 @@ body {
 .navbar-inner {
   background: #26292e;
   border: none;
+  -webkit-box-shadow: 0 1px 1px #000000;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 1px 1px #000000;
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 1px #000000;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
   position: relative;
+}
+
+.navbar .brand {
+  -webkit-text-shadow: none;
+  text-shadow: none;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.5em;
 }
 
 .navbar .nav > li > a {
@@ -30,10 +41,10 @@ body {
   -webkit-text-shadow: none;
   text-shadow: none;
   text-transform: uppercase;
-  -webkit-transition: color 0.1s linear 0s;
-  -moz-transition: color 0.1s linear 0s;
-  -o-transition: color 0.1s linear 0s;
-  transition: color 0.1s linear 0s;
+  -webkit-transition: color 0.1s linear 0;
+  -moz-transition: color 0.1s linear 0;
+  -o-transition: color 0.1s linear 0;
+  transition: color 0.1s linear 0;
 }
 
   .navbar .nav > li > a:focus,
