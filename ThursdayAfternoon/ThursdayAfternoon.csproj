@@ -217,6 +217,8 @@
     <Content Include="Views\Presentation\create.cshtml" />
     <Content Include="Views\Presentation\view.cshtml" />
     <Content Include="Views\Index\register.cshtml" />
+    <Content Include="Views\Presentation\add-slide.cshtml" />
+    <Content Include="Views\Presentation\edit-slide.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

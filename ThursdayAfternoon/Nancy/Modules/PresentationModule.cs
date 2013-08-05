@@ -69,6 +69,7 @@ namespace ThursdayAfternoon.Nancy.Modules
                 int presId = _.id;
                 Presentation presentation = _presentationService.GetById(presId);
                 EditViewModel model = presentation.BindToModel<EditViewModel>();
+                model.Slides = presentation.Slides.ToList();
                 return View["edit", model];
             };
             Post["/edit/{id}"] = _ =>
@@ -82,8 +83,24 @@ namespace ThursdayAfternoon.Nancy.Modules
 
                     return Response.AsRedirect("/presentation");
                 }
+                model.Slides = this.GetSlides(_.id);
                 return View["edit", model];
             };
+
+            Get["/edit/{id}/slide"] = _ =>
+            {
+                return View["add-slide"];
+            };
+
+            Get["/edit/{id}/slide/{sid}"] = _ =>
+            {
+                return View["edit-slide"];
+            };
+        }
+
+        private List<Slide> GetSlides(int presentationId)
+        {
+            return _presentationService.GetSlides(presentationId);
         }
     }
 }
