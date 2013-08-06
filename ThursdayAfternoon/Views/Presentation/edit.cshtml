@@ -3,6 +3,8 @@
 @{
     Layout = "shared/_layout";
     ViewBag.Title = "Edit" + @Model.Title;
+
+    int slideCount = Model.SlideIds.Length;
 }
 
 <h1>Edit @Model.Title</h1>
@@ -23,17 +25,28 @@
             @Html.Hidden("CreatedOn")
             @Html.Hidden("ModifiedOn")
             @Html.Hidden("OwnerId")
+            @Html.Hidden("SlideIds")
 
             <button class="btn btn-default" type="submit">Edit</button>
             <a href="@Url.Content("~/presentation")" class="btn">Cancel</a>
         </form>
     </div>
     <div class="col-lg-4">
-        <p>Slides: --</p>
-        @foreach (var slide in Model.Slides)
-        {
-            <p><a href="@Url.Content("~/presentation/edit/" + @Model.Id + "/slide/" + @slide.Id)" class="btn">Test</a></p>
-        }
+        <p>Slides: @slideCount</p>
         <p><a href="@Url.Content("~/presentation/edit/" + @Model.Id + "/slide")" class="btn">Add new Slide</a></p>
+  
+        <ul>
+        @if (slideCount > 0)
+        {
+            for (int i = 0; i < slideCount; i++)
+            {
+                <li><a href="@Url.Content("~/presentation/edit/" + @Model.Id + "/slide/" + @Model.SlideIds[i])" class="btn">Slide @(i + 1)</a></li>
+            }
+        }
+        else
+        {
+            <li></li>
+        }
+        </ul>
     </div>
 </div>

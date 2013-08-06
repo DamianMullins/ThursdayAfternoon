@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using ThursdayAfternoon.Models;
 
 namespace ThursdayAfternoon.ViewModels.Presentation
 {
@@ -12,11 +10,6 @@ namespace ThursdayAfternoon.ViewModels.Presentation
         public int OwnerId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public List<Slide> Slides { get; set; }
-
-        public EditViewModel()
-        {
-            Slides = new List<Slide>();
-        }
+        public int[] SlideIds { get; set; }
     }
 }
