@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Reflection;
-using Nancy.Validation;
+﻿using Nancy.Validation;
 using Nancy.ViewEngines.Razor;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
+using ThursdayAfternoon.Infrastructure;
 using Utilities.Core.Text;
 using AntiXSS = Microsoft.Security.Application;
 
@@ -122,11 +122,7 @@ namespace ThursdayAfternoon.Nancy.Extensions
                     // Convert arrays to comma-seperated string
                     if (propInfo.PropertyType.IsArray)
                     {
-                        var arrValues = ((IEnumerable)val).Cast<object>()
-                                 .Select(x => x.ToString())
-                                 .ToArray();
-
-                        value = String.Join(",", arrValues);
+                        value = val.ConvertToCommaSeperatedString();
                     }
                     else
                     {
