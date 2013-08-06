@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections;
+using System.Reflection;
 using Nancy.Validation;
 using Nancy.ViewEngines.Razor;
 using System;
@@ -118,7 +119,19 @@ namespace ThursdayAfternoon.Nancy.Extensions
                 object val = propInfo.GetValue(htmlHelper.Model);
                 if (val != null)
                 {
-                    value = val.ToString();
+                    // Convert arrays to comma-seperated string
+                    if (propInfo.PropertyType.IsArray)
+                    {
+                        var arrValues = ((IEnumerable)val).Cast<object>()
+                                 .Select(x => x.ToString())
+                                 .ToArray();
+
+                        value = String.Join(",", arrValues);
+                    }
+                    else
+                    {
+                        value = val.ToString();
+                    }
                 }
             }
 
