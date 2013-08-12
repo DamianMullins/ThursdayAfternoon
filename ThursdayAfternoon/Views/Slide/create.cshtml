@@ -1,6 +1,5 @@
-﻿@*@using ThursdayAfternoon.Nancy.Extensions
-@inherits NancyRazorViewBase<ThursdayAfternoon.ViewModels.Presentation.EditViewModel>*@
-@inherits NancyRazorViewBase<int>
+﻿@using ThursdayAfternoon.Nancy.Extensions
+@inherits NancyRazorViewBase<ThursdayAfternoon.ViewModels.Slide.EditViewModel>
 @{
     Layout = "shared/_layout";
     ViewBag.Title = "Add Slide";
@@ -8,28 +7,23 @@
 
 <h1>Add Slide @Model.ToString()</h1>
 
-@*<div class="row">
+<div class="row">
     <div class="col-lg-8">
-        <form class="@Url.Content("~/presentation/edit/" + @Model.Id)" method="post">
+        <form class="@Url.Content("~/slide/create/")" method="post">
             <div class="form-group">
                 <label for="Title">Title</label>
                 @Html.TextBox("Title", "form-control", "Title")
             </div>
 
             <div class="form-group">
-                <label for="Description">Description</label>
-                @Html.TextBox("Description", "form-control", "Description")
+                <label for="Content">Content</label>
+                @Html.TextBox("Content", "form-control", "Content")
             </div>
 
-            @Html.Hidden("CreatedOn")
-            @Html.Hidden("ModifiedOn")
-            @Html.Hidden("OwnerId")
-
-            <button class="btn btn-default" type="submit">Edit</button>
-            <a href="@Url.Content("~/presentation")" class="btn">Cancel</a>
+            <button class="btn btn-default" type="submit">Create</button>
+            <a href="@Url.Content("~/presentation")" class="btn btn-inverse">Cancel</a>
         </form>
     </div>
     <div class="col-lg-4">
-        <p>Slides: --</p>
     </div>
-</div>*@
+</div>

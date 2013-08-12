@@ -144,6 +144,7 @@
     <Compile Include="Infrastructure\Data\IDbContext.cs" />
     <Compile Include="Infrastructure\Data\IRepository.cs" />
     <Compile Include="Infrastructure\Data\ThursdayContext.cs" />
+    <Compile Include="Infrastructure\Extensions\SlideExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\UserExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\PresentationExtensions.cs" />
     <Compile Include="Infrastructure\Services\ISlideService.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="Infrastructure\Services\Security\EncryptionService.cs" />
     <Compile Include="Infrastructure\Services\Security\IEncryptionService.cs" />
     <Compile Include="Infrastructure\UserRoleNames.cs" />
+    <Compile Include="Infrastructure\Validation\SlideEditValidator.cs" />
     <Compile Include="Infrastructure\Validation\RegisterValidator.cs" />
     <Compile Include="Infrastructure\Validation\LoginValidator.cs" />
     <Compile Include="Infrastructure\Validation\PresentationEditValidator.cs" />
@@ -205,6 +207,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Infrastructure\Services\UserService.cs" />
     <Compile Include="ViewModels\Presentation\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Slide\EditViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Index\index.cshtml" />
