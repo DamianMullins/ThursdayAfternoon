@@ -44,10 +44,10 @@ namespace ThursdayAfternoon.Nancy.Modules
                 return View["create", model];
             };
 
-            Get["/edit/{presentationId}/{slideId}"] = _ =>
+            Get["/edit/{presentationId}/{id}"] = _ =>
             {
                 User currentUser = this.CurrentUser();
-                int slideId = _.slideId;
+                int slideId = _.id;
                 Slide slide = _slideService.GetById(slideId);
                 Presentation presentation = slide.Presentation;
                 if (presentation.OwnerId == currentUser.Id)
@@ -57,7 +57,7 @@ namespace ThursdayAfternoon.Nancy.Modules
                 }
                 return 404;
             };
-            Post["/edit/{presentationId}/{slideId}"] = _ =>
+            Post["/edit/{presentationId}/{id}"] = _ =>
             {
                 EditViewModel model = this.Bind();
                 ModelValidationResult result = this.Validate(model);
