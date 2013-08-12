@@ -122,7 +122,7 @@ namespace ThursdayAfternoon.Nancy.Extensions
                     // Convert arrays to comma-seperated string
                     if (propInfo.PropertyType.IsArray)
                     {
-                        value = val.ConvertToCommaSeperatedString();
+                        value = val.ToCommaSeperatedString();
                     }
                     else
                     {
