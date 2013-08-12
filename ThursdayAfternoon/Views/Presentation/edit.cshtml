@@ -11,7 +11,7 @@
 
 <div class="row">
     <div class="col-lg-8">
-        <form class="@Url.Content("~/presentation/edit/" + @Model.Id)" method="post">
+        <form action="@Url.Content("~/presentation/edit/" + @Model.Id)" method="post">
             <div class="form-group">
                 <label for="Title">Title</label>
                 @Html.TextBox("Title", "form-control", "Title")

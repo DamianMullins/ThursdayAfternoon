@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-lg-4">
-        <form class="@Url.Content("~/register")" method="post">
+        <form action="@Url.Content("~/register")" method="post">
             <div class="form-group">
                 <label for="Username">Email Address</label>
                 @Html.TextBox("Username", "form-control", "Email Address")

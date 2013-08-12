@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-lg-8">
-        <form class="@Url.Content("~/slide/edit/" + @Model)" method="post">
+        <form action="@Url.Content("~/slide/edit/" + @Model.PresentationId + "/" + @Model.Id)" method="post">
             <div class="form-group">
                 <label for="Title">Title</label>
                 @Html.TextBox("Title", "form-control", "Title")
@@ -22,8 +22,6 @@
 
             @Html.Hidden("CreatedOn")
             @Html.Hidden("ModifiedOn")
-            @Html.Hidden("OwnerId")
-            @Html.Hidden("SlideIds")
 
             <button class="btn btn-default" type="submit">Edit</button>
             <a href="@Url.Content("~/presentation")" class="btn">Cancel</a>
