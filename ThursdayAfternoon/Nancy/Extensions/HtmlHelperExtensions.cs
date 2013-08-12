@@ -146,7 +146,7 @@ namespace ThursdayAfternoon.Nancy.Extensions
 
         internal static IEnumerable<ModelValidationError> GetErrorsForProperty<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName)
         {
-            var validationResult = htmlHelper.RenderContext.Context.ModelValidationResult;
+            ModelValidationResult validationResult = htmlHelper.RenderContext.Context.ModelValidationResult;
             if (validationResult.IsValid)
             {
                 return Enumerable.Empty<ModelValidationError>();
