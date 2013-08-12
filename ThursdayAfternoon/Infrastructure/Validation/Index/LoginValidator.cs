@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using ThursdayAfternoon.ViewModels.Index;
 
-namespace ThursdayAfternoon.Infrastructure.Validation
+namespace ThursdayAfternoon.Infrastructure.Validation.Index
 {
     public class LoginValidator : AbstractValidator<LoginViewModel>
     {

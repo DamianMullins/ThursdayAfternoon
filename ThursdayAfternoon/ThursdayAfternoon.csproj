@@ -161,10 +161,10 @@
     <Compile Include="Infrastructure\Services\Security\EncryptionService.cs" />
     <Compile Include="Infrastructure\Services\Security\IEncryptionService.cs" />
     <Compile Include="Infrastructure\UserRoleNames.cs" />
-    <Compile Include="Infrastructure\Validation\SlideEditValidator.cs" />
-    <Compile Include="Infrastructure\Validation\RegisterValidator.cs" />
-    <Compile Include="Infrastructure\Validation\LoginValidator.cs" />
-    <Compile Include="Infrastructure\Validation\PresentationEditValidator.cs" />
+    <Compile Include="Infrastructure\Validation\Slide\EditValidator.cs" />
+    <Compile Include="Infrastructure\Validation\Index\RegisterValidator.cs" />
+    <Compile Include="Infrastructure\Validation\Index\LoginValidator.cs" />
+    <Compile Include="Infrastructure\Validation\Presentation\EditValidator.cs" />
     <Compile Include="Infrastructure\Converters.cs" />
     <Compile Include="Migrations\201307251136474_Initial.cs" />
     <Compile Include="Migrations\201307251136474_Initial.Designer.cs">

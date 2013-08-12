@@ -1,11 +1,11 @@
 ﻿using FluentValidation;
 using ThursdayAfternoon.ViewModels.Presentation;
 
-namespace ThursdayAfternoon.Infrastructure.Validation
+namespace ThursdayAfternoon.Infrastructure.Validation.Presentation
 {
-    public class PresentationEditValidator : AbstractValidator<EditViewModel>
+    public class EditValidator : AbstractValidator<EditViewModel>
     {
-        public PresentationEditValidator()
+        public EditValidator()
         {
             RuleFor(p => p.Title).NotEmpty().WithMessage("Title must be provided.");
         }
