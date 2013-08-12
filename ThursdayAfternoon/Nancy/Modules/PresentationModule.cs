@@ -80,17 +80,21 @@ namespace ThursdayAfternoon.Nancy.Modules
             };
             Post["/edit/{id}"] = _ =>
             {
+                User currentUser = this.CurrentUser();
                 EditViewModel model = this.Bind();
-                ModelValidationResult result = this.Validate(model);
-                if (result.IsValid)
+                if (model.OwnerId == currentUser.Id)
                 {
-                    Presentation presentation = model.Bind();
-                    _presentationService.Update(presentation);
+                    ModelValidationResult result = this.Validate(model);
+                    if (result.IsValid)
+                    {
+                        Presentation presentation = model.Bind();
+                        _presentationService.Update(presentation);
 
-                    return Response.AsRedirect("/presentation");
+                        return Response.AsRedirect("/presentation");
+                    }
+                    return View["edit", model];
                 }
-                //model.SlideIds = this.GetSlides(_.id);
-                return View["edit", model];
+                return 404;
             };
         }
     }

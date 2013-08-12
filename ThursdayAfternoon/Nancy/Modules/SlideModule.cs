@@ -25,7 +25,7 @@ namespace ThursdayAfternoon.Nancy.Modules
             _slideService = slideService;
 
             // Routes
-            Get["/create/{id}"] = _ =>
+            Get["/create/{presentationId}"] = _ =>
             {
                 var model = new EditViewModel();
                 return View["create", model];
