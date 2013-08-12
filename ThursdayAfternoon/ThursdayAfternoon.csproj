@@ -101,10 +101,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="ThursdayAfternoon, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ThursdayAfternoon.Tests\bin\Debug\ThursdayAfternoon.dll</HintPath>
-    </Reference>
     <Reference Include="Utilities.Core">
       <HintPath>..\packages\Utilities.Core.1.12.0.0\lib\net45\Utilities.Core.dll</HintPath>
     </Reference>
