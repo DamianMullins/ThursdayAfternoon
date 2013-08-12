@@ -24,7 +24,7 @@
             @Html.Hidden("ModifiedOn")
 
             <button class="btn btn-default" type="submit">Edit</button>
-            <a href="@Url.Content("~/presentation")" class="btn">Cancel</a>
+            <a href="@Url.Content("~/presentation/edit/" + @Model.PresentationId)" class="btn">Cancel</a>
         </form>
     </div>
     <div class="col-lg-4">
