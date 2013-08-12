@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Validation;
 using System.Linq;
 using ThursdayAfternoon.Models;
@@ -13,12 +14,12 @@ namespace ThursdayAfternoon.Infrastructure.Data
 
         public EfRepository(IDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         public T GetById(object id)
         {
-            return this.Entities.Find(id);
+            return Entities.Find(id);
         }
 
         public void Insert(T entity)
@@ -29,8 +30,8 @@ namespace ThursdayAfternoon.Infrastructure.Data
                 {
                     throw new ArgumentNullException("entity");
                 }
-                this.Entities.Add(entity);
-                this._context.SaveChanges();
+                Entities.Add(entity);
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbException)
             {
@@ -46,8 +47,22 @@ namespace ThursdayAfternoon.Infrastructure.Data
                 {
                     throw new ArgumentNullException("entity");
                 }
-                this._context.Entry(entity).State = EntityState.Modified;
-                this._context.SaveChanges();
+                DbEntityEntry entry = _context.Entry(entity);
+                if (entry.State == EntityState.Detached)
+                {
+                    var set = _context.Set<T>();
+                    var attachedEntity = set.Find(entity.Id);
+                    if (attachedEntity != null)
+                    {
+                        DbEntityEntry attachedEntry = _context.Entry(attachedEntity);
+                        attachedEntry.CurrentValues.SetValues(entity);
+                    }
+                    else
+                    {
+                        entry.State = EntityState.Modified;
+                    }
+                }
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbException)
             {
@@ -63,8 +78,8 @@ namespace ThursdayAfternoon.Infrastructure.Data
                 {
                     throw new ArgumentNullException("entity");
                 }
-                this.Entities.Remove(entity);
-                this._context.SaveChanges();
+                Entities.Remove(entity);
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbException)
             {
@@ -74,7 +89,7 @@ namespace ThursdayAfternoon.Infrastructure.Data
 
         public IQueryable<T> Table
         {
-            get { return this.Entities; }
+            get { return Entities; }
         }
 
         private IDbSet<T> Entities
