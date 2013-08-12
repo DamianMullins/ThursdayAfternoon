@@ -27,7 +27,7 @@ namespace ThursdayAfternoon.Nancy.Modules
             // Routes
             Get["/create/{presentationId}"] = _ =>
             {
-                var model = new EditViewModel();
+                EditViewModel model = this.Bind();
                 return View["create", model];
             };
             Post["/create/{presentationId}"] = _ =>
