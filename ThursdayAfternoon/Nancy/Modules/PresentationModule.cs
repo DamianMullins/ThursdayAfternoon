@@ -87,15 +87,15 @@ namespace ThursdayAfternoon.Nancy.Modules
                 return View["edit", model];
             };
 
-            Get["/edit/{id}/slide"] = _ =>
-            {
-                return View["add-slide"];
-            };
+            //Get["/edit/{id}/slide"] = _ =>
+            //{
+            //    return View["add-slide"];
+            //};
 
-            Get["/edit/{id}/slide/{sid}"] = _ =>
-            {
-                return View["edit-slide"];
-            };
+            //Get["/edit/{id}/slide/{sid}"] = _ =>
+            //{
+            //    return View["edit-slide"];
+            //};
         }
 
         //private List<Slide> GetSlides(int presentationId)

@@ -33,14 +33,14 @@
     </div>
     <div class="col-lg-4">
         <p>Slides: @slideCount</p>
-        <p><a href="@Url.Content("~/presentation/edit/" + @Model.Id + "/slide")" class="btn">Add new Slide</a></p>
+        <p><a href="@Url.Content("~/slide/create/" + @Model.Id)" class="btn">Add new Slide</a></p>
   
         <ul>
         @if (slideCount > 0)
         {
             for (int i = 0; i < slideCount; i++)
             {
-                <li><a href="@Url.Content("~/presentation/edit/" + @Model.Id + "/slide/" + @Model.SlideIds[i])" class="btn">Slide @(i + 1)</a></li>
+                <li><a href="@Url.Content("~/slide/edit/" + @Model.Id + "/" + @Model.SlideIds[i])" class="btn">Slide @(i + 1)</a></li>
             }
         }
         else

@@ -14,6 +14,5 @@ namespace ThursdayAfternoon.Infrastructure.Services
         void Delete(Presentation presentation);
 
         List<Presentation> GetByOwnerId(int ownerId);
-        List<Slide> GetSlides(int presentationId);
     }
 }

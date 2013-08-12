@@ -1,11 +1,12 @@
 ﻿@*@using ThursdayAfternoon.Nancy.Extensions
 @inherits NancyRazorViewBase<ThursdayAfternoon.ViewModels.Presentation.EditViewModel>*@
+@inherits NancyRazorViewBase<int>
 @{
     Layout = "shared/_layout";
     ViewBag.Title = "Add Slide";
 }
 
-<h1>Add Slide</h1>
+<h1>Add Slide @Model.ToString()</h1>
 
 @*<div class="row">
     <div class="col-lg-8">

@@ -146,7 +146,9 @@
     <Compile Include="Infrastructure\Data\ThursdayContext.cs" />
     <Compile Include="Infrastructure\Extensions\UserExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\PresentationExtensions.cs" />
+    <Compile Include="Infrastructure\Services\ISlideService.cs" />
     <Compile Include="Infrastructure\Services\IUserRoleService.cs" />
+    <Compile Include="Infrastructure\Services\SlideService.cs" />
     <Compile Include="Infrastructure\Services\UserRoleService.cs" />
     <Compile Include="Infrastructure\Services\IPresentationService.cs">
       <SubType>Code</SubType>
@@ -190,6 +192,7 @@
     <Compile Include="Models\Slide.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Nancy\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Nancy\Modules\SlideModule.cs" />
     <Compile Include="ViewModels\Presentation\ViewPresentationViewModel.cs" />
     <Compile Include="ViewModels\Presentation\EditViewModel.cs" />
     <Compile Include="ViewModels\Index\RegisterViewModel.cs" />
@@ -218,8 +221,8 @@
     <Content Include="Views\Presentation\create.cshtml" />
     <Content Include="Views\Presentation\view.cshtml" />
     <Content Include="Views\Index\register.cshtml" />
-    <Content Include="Views\Presentation\add-slide.cshtml" />
-    <Content Include="Views\Presentation\edit-slide.cshtml" />
+    <Content Include="Views\Slide\create.cshtml" />
+    <Content Include="Views\Slide\edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
