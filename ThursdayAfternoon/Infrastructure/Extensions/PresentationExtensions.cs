@@ -13,12 +13,6 @@ namespace ThursdayAfternoon.Infrastructure.Extensions
             return (Presentation)presentation.InjectFrom(viewModel);
         }
 
-        public static T BindToModel<T>(this Presentation presentation) where T : new()
-        {
-            var viewModel = new T();
-            return (T)viewModel.InjectFrom(presentation);
-        }
-
         public static string Slug(this Presentation presentation)
         {
             return presentation.Title.ToSlug();

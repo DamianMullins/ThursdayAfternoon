@@ -11,11 +11,5 @@ namespace ThursdayAfternoon.Infrastructure.Extensions
             var slide = new Slide();
             return (Slide)slide.InjectFrom(viewModel);
         }
-
-        //public static T BindToModel<T>(this Presentation presentation) where T : new()
-        //{
-        //    var viewModel = new T();
-        //    return (T)viewModel.InjectFrom(presentation);
-        //}
     }
 }

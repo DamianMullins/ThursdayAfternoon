@@ -40,7 +40,7 @@ namespace ThursdayAfternoon.Nancy.Modules
             {
                 int presId = _.id;
                 Presentation presentation = _presentationService.GetById(presId);
-                ViewPresentationViewModel model = presentation.BindToModel<ViewPresentationViewModel>();
+                ViewPresentationViewModel model = presentation.BindToModel<ViewPresentationViewModel, Presentation>();
                 return View["view", model];
             };
 
@@ -51,12 +51,13 @@ namespace ThursdayAfternoon.Nancy.Modules
             };
             Post["/create/"] = _ =>
             {
+                User currentUser = this.CurrentUser();
                 EditViewModel model = this.Bind();
                 ModelValidationResult result = this.Validate(model);
                 if (result.IsValid)
                 {
                     Presentation presentation = model.Bind();
-                    presentation.OwnerId = this.CurrentUser().Id;
+                    presentation.OwnerId = currentUser.Id;
                     _presentationService.Insert(presentation);
 
                     return Response.AsRedirect("/presentation");
@@ -66,11 +67,16 @@ namespace ThursdayAfternoon.Nancy.Modules
 
             Get["/edit/{id}"] = _ =>
             {
+                User currentUser = this.CurrentUser();
                 int presId = _.id;
                 Presentation presentation = _presentationService.GetById(presId);
-                EditViewModel model = presentation.BindToModel<EditViewModel>();
-                model.SlideIds = presentation.Slides.Select(s => s.Id).ToArray();
-                return View["edit", model];
+                if (presentation.OwnerId == currentUser.Id)
+                {
+                    EditViewModel model = presentation.BindToModel<EditViewModel, Presentation>();
+                    model.SlideIds = presentation.Slides.Select(s => s.Id).ToArray();
+                    return View["edit", model];
+                }
+                return 404;
             };
             Post["/edit/{id}"] = _ =>
             {

@@ -5,6 +5,7 @@ using Nancy.Validation;
 using ThursdayAfternoon.Infrastructure.Extensions;
 using ThursdayAfternoon.Infrastructure.Services;
 using ThursdayAfternoon.Models;
+using ThursdayAfternoon.Nancy.Extensions;
 using ThursdayAfternoon.ViewModels.Slide;
 
 namespace ThursdayAfternoon.Nancy.Modules
@@ -26,7 +27,6 @@ namespace ThursdayAfternoon.Nancy.Modules
             // Routes
             Get["/create/{id}"] = _ =>
             {
-                //this.RequiresAuthentication();
                 var model = new EditViewModel();
                 return View["create", model];
             };
@@ -39,14 +39,36 @@ namespace ThursdayAfternoon.Nancy.Modules
                     Slide slide = model.Bind();
                     _slideService.Insert(slide);
 
-                    return Response.AsRedirect("/presentation");
+                    return Response.AsRedirect("/presentation/edit/" + model.PresentationId);
                 }
                 return View["create", model];
             };
 
-            Get["/edit/{id}/{sid}"] = _ =>
+            Get["/edit/{presentationId}/{slideId}"] = _ =>
             {
-                return View["edit", (int)_.sid];
+                User currentUser = this.CurrentUser();
+                int slideId = _.slideId;
+                Slide slide = _slideService.GetById(slideId);
+                Presentation presentation = slide.Presentation;
+                if (presentation.OwnerId == currentUser.Id)
+                {
+                    EditViewModel model = slide.BindToModel<EditViewModel, Slide>();
+                    return View["edit", model];
+                }
+                return 404;
+            };
+            Post["/edit/{presentationId}/{slideId}"] = _ =>
+            {
+                EditViewModel model = this.Bind();
+                ModelValidationResult result = this.Validate(model);
+                if (result.IsValid)
+                {
+                    Slide slide = model.Bind();
+                    _slideService.Update(slide);
+
+                    return Response.AsRedirect("/presentation/edit/" + model.PresentationId);
+                }
+                return View["edit", model];
             };
         }
     }

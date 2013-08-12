@@ -1,8 +1,7 @@
-﻿using System.Linq;
-using Nancy;
+﻿using Nancy;
 using Nancy.Extensions;
 using Nancy.Security;
-using Nancy.Validation;
+using Omu.ValueInjecter;
 using ThursdayAfternoon.Models;
 
 namespace ThursdayAfternoon.Nancy.Extensions
@@ -56,6 +55,12 @@ namespace ThursdayAfternoon.Nancy.Extensions
         public static void AddValidationError(this NancyModule module, string propertyName, string errorMessage)
         {
             module.ModelValidationResult = module.ModelValidationResult.AddError(propertyName, errorMessage);
+        }
+
+        public static T BindToModel<T, TM>(this TM input) where T : new()
+        {
+            var viewModel = new T();
+            return (T)viewModel.InjectFrom(input);
         }
     }
 }
