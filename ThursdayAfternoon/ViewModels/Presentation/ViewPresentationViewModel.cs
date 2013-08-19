@@ -12,7 +12,7 @@ namespace ThursdayAfternoon.ViewModels.Presentation
 
         public string Title { get; set; }
         public string Description { get; set; }
-        public Models.Presentation Presentation { get; set; }
+        //public Models.Presentation Presentation { get; set; }
         public List<Models.Slide> Slides { get; set; }
     }
 }

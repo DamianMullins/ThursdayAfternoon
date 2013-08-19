@@ -1,7 +1,14 @@
 ﻿body {
-
 }
 
 * {
   border-radius: 0 !important;
+}
+
+.carousel-inner > .item {
+  min-height: 600px;
+}
+
+.carousel-caption {
+  top: 20px;
 }

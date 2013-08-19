@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using Nancy;
+﻿using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Security;
 using Nancy.Validation;
-using Omu.ValueInjecter;
 using System.Collections.Generic;
+using System.Linq;
 using ThursdayAfternoon.Infrastructure.Extensions;
 using ThursdayAfternoon.Infrastructure.Services;
 using ThursdayAfternoon.Models;
@@ -22,7 +21,7 @@ namespace ThursdayAfternoon.Nancy.Modules
         {
             // Authentication
             this.RequiresAuthentication();
-            this.RequiresClaims(new[] { "Admin" });
+            //this.RequiresClaims(new[] { "Admin" });
 
             // Dependency Injection
             _presentationService = presentationService;
@@ -41,6 +40,7 @@ namespace ThursdayAfternoon.Nancy.Modules
                 int presId = _.id;
                 Presentation presentation = _presentationService.GetById(presId);
                 ViewPresentationViewModel model = presentation.BindToModel<ViewPresentationViewModel, Presentation>();
+                model.Slides = presentation.Slides.ToList();
                 return View["view", model];
             };
 
