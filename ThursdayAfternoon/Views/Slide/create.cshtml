@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-lg-8">
-        <form action="@Url.Content("~/slide/create/")" method="post">
+        <form action="@Url.Content("~/slide/create/" + Model.PresentationId)" method="post">
             <div class="form-group">
                 <label for="Title">Title</label>
                 @Html.TextBox("Title", "form-control", "Title")
