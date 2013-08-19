@@ -113,6 +113,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\install.sql" />
     <Content Include="Content\bootstrap-overrides.css" />
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap\bootstrap-glyphicons.css" />
@@ -147,6 +148,7 @@
     <Compile Include="Infrastructure\Extensions\SlideExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\UserExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\PresentationExtensions.cs" />
+    <Compile Include="Infrastructure\Services\Install\InstallService.cs" />
     <Compile Include="Infrastructure\Services\ISlideService.cs" />
     <Compile Include="Infrastructure\Services\IUserRoleService.cs" />
     <Compile Include="Infrastructure\Services\SlideService.cs" />
@@ -250,6 +252,7 @@
       <DependentUpon>201308051439321_User_Add_NameDetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
