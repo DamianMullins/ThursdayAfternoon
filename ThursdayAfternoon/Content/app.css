@@ -6,11 +6,25 @@ body {
 }
 
 body {
-  background: #2f3238;
-  background: -webkit-radial-gradient(10% 0, farthest-side ellipse, rgba(47,50,56,0.91), rgba(20, 27, 41, 0.91), rgba(47,50,56,0.91)),url("images/bgnoise_lg_dark.png");
   color: #f7faff;
   font-weight: 300;
   font-size: 16px;
+}
+
+
+/***** Generic ******************************/
+body,
+.gradient-bg {
+  background: #2f3238;
+  background: -webkit-radial-gradient(10% 0, farthest-side ellipse, rgba(47,50,56,0.91), rgba(20, 27, 41, 0.91), rgba(47,50,56,0.91)), url("images/bgnoise_lg_dark.png");
+}
+
+.fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 
