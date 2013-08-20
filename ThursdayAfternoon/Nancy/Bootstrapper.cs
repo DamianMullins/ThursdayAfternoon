@@ -20,7 +20,7 @@ namespace ThursdayAfternoon.Nancy
             base.ConfigureConventions(nancyConventions);
 
             Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("styles", @"/Content", allowedExtensions: new[] { "css", "png" }));
-            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("scripts", @"/Scripts", allowedExtensions: new[] { "js" }));
+            Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("scripts", @"/Scripts", allowedExtensions: new[] { "js", "css", "svg", "woff", "ttf" }));
         }
 
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)

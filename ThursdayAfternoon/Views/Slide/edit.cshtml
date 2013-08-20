@@ -17,7 +17,7 @@
 
             <div class="form-group">
                 <label for="Content">Content</label>
-                @Html.TextArea("Content", "form-control", 10, 15)
+                @Html.TextArea("Content", "form-control tinymce", 10, 15)
             </div>
 
             @Html.Hidden("CreatedOn")
@@ -30,3 +30,19 @@
     <div class="col-lg-4">
     </div>
 </div>
+
+@section scripts {
+    <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
+    <script>
+        $(function () {
+            $('textarea.tinymce').tinymce({
+                script_url: '/scripts/tinymce/tinymce.js',
+                schema: 'html5',
+                //inline: true,
+                toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+                menubar: false,
+                statusbar: false
+            });
+        });
+    </script>
+}
