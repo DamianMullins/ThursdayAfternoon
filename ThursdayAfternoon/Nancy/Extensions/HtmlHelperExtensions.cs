@@ -14,6 +14,9 @@ namespace ThursdayAfternoon.Nancy.Extensions
 {
     public static class HtmlHelperExtensions
     {
+        private const string InputTemplate = @"<input type=""{0}"" id=""{1}"" name=""{2}"" value=""{3}"" class=""{4}"" placeholder=""{5}"" tabindex=""{6}"" />";
+        private const string TextAreaTemplate = @"<textarea id=""{0}"" name=""{1}"" class=""{3}"" cols=""{4}"" rows=""{5}"" tabindex=""{6}"">{2}</textarea>";
+
         public static IHtmlString CheckBox<T>(this HtmlHelpers<T> helper, string name, bool value)
         {
             var checkBoxBuilder = new StringBuilder();
@@ -68,7 +71,32 @@ namespace ThursdayAfternoon.Nancy.Extensions
 
         public static IHtmlString TextBox<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName, string className, string placeholder)
         {
-            return InputHelper(htmlHelper, "text", propertyName, htmlHelper.GetValueForProperty(propertyName), className, placeholder);
+            return TextBox(htmlHelper, propertyName, className, placeholder, null);
+        }
+        
+        public static IHtmlString TextBox<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName, string className, string placeholder, int? tabIndex)
+        {
+            return InputHelper(htmlHelper, "text", propertyName, htmlHelper.GetValueForProperty(propertyName), className, placeholder, tabIndex);
+        }
+        
+        public static IHtmlString TextArea<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName)
+        {
+            return TextArea(htmlHelper, propertyName, string.Empty, 10, 5, null);
+        }
+
+        public static IHtmlString TextArea<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName, string className)
+        {
+            return TextArea(htmlHelper, propertyName, className, 10, 5, null);
+        }
+
+        public static IHtmlString TextArea<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName, string className, int columns, int rows)
+        {
+            return TextArea(htmlHelper, propertyName, className, columns, rows, null);
+        }
+
+        public static IHtmlString TextArea<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName, string className, int columns, int rows, int? tabIndex)
+        {
+            return TextAreaHelper(htmlHelper, propertyName, htmlHelper.GetValueForProperty(propertyName), className, columns, rows, tabIndex);
         }
 
         public static IHtmlString Password<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName)
@@ -78,12 +106,17 @@ namespace ThursdayAfternoon.Nancy.Extensions
 
         public static IHtmlString Password<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName, string className)
         {
-            return Password(htmlHelper, propertyName, className, null);
+            return Password(htmlHelper, propertyName, className, null, null);
         }
 
         public static IHtmlString Password<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName, string className, string placeholder)
         {
-            return InputHelper(htmlHelper, "password", propertyName, null, className, placeholder);
+            return Password(htmlHelper, propertyName, className, placeholder, null);
+        }
+
+        public static IHtmlString Password<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName, string className, string placeholder, int? tabIndex)
+        {
+            return InputHelper(htmlHelper, "password", propertyName, null, className, placeholder, tabIndex);
         }
 
         public static IHtmlString Hidden<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName)
@@ -101,12 +134,18 @@ namespace ThursdayAfternoon.Nancy.Extensions
             return NonEncodedHtmlString.Empty;
         }
 
-        private const string InputTemplate = @"<input type=""{0}"" id=""{1}"" name=""{2}"" value=""{3}"" class=""{4}"" placeholder=""{5}"" />";
-        private static IHtmlString InputHelper<TModel>(HtmlHelpers<TModel> htmlHelper, string inputType, string propertyName, string value, string className, string placeholder)
+        private static IHtmlString InputHelper<TModel>(HtmlHelpers<TModel> htmlHelper, string inputType, string propertyName, string value, string className, string placeholder, int? tabIndex)
         {
             bool hasError = htmlHelper.GetErrorsForProperty(propertyName).Any();
+            string cssClass = hasError ? "{0} {1}".With(className, "error").Trim() : className;
+            return new NonEncodedHtmlString(InputTemplate.With(inputType, propertyName, propertyName, value, cssClass, placeholder, tabIndex));
+        }
 
-            return new NonEncodedHtmlString(InputTemplate.With(inputType, propertyName, propertyName, value, hasError ? "{0} {1}".With(className, "error").Trim() : className, placeholder));
+        private static IHtmlString TextAreaHelper<TModel>(HtmlHelpers<TModel> htmlHelper, string propertyName, string value, string className, int columns, int rows, int? tabIndex)
+        {
+            bool hasError = htmlHelper.GetErrorsForProperty(propertyName).Any();
+            string cssClass = hasError ? "{0} {1}".With(className, "error").Trim() : className;
+            return new NonEncodedHtmlString(TextAreaTemplate.With(propertyName, propertyName, value, cssClass, columns, rows, tabIndex));
         }
 
         internal static string GetValueForProperty<TModel>(this HtmlHelpers<TModel> htmlHelper, string propertyName)
