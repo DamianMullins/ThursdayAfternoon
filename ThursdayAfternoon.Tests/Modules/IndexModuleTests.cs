@@ -16,18 +16,18 @@ namespace ThursdayAfternoon.Tests.Modules
             _bootstrapper = new Bootstrapper();
         }
 
-        [Test]
-        public void Should_return_status_ok()
-        {
-            // Arrange
-            var bootstrapper = new ConfigurableBootstrapper(with => with.Module<IndexModule>());
-            var browser = new Browser(bootstrapper);
+        //[Test]
+        //public void Should_return_status_ok()
+        //{
+        //    // Arrange
+        //    var bootstrapper = new ConfigurableBootstrapper(with => with.Module<IndexModule>());
+        //    var browser = new Browser(bootstrapper);
 
-            // Act
-            var result = browser.Get("/", with => with.HttpRequest());
+        //    // Act
+        //    var result = browser.Get("/", with => with.HttpRequest());
 
-            // Assert
-            Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
-        }
+        //    // Assert
+        //    Assert.AreEqual(HttpStatusCode.OK, result.StatusCode);
+        //}
     }
 }
