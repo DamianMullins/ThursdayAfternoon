@@ -21,7 +21,6 @@ namespace ThursdayAfternoon.Nancy.Modules
         {
             // Authentication
             this.RequiresAuthentication();
-            //this.RequiresClaims(new[] { "Admin" });
 
             // Dependency Injection
             _presentationService = presentationService;
