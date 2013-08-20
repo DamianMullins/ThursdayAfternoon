@@ -1,0 +1,32 @@
+﻿@using ThursdayAfternoon.Nancy.Extensions
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title - Thursday Afternoon</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @{
+        WriteLiteral(Bundle.Css()
+            .Add("~/content/bootstrap/bootstrap.css")
+            .Add("~/content/bootstrap-overrides.css")
+            .Add("~/content/app.css")
+            .Render("~/content/thursday_#.css"));
+    }
+</head>
+<body>
+    @Html.Partial("shared/_navbar")
+
+    @Html.ValidationSummary()
+    @RenderBody()
+
+    @{
+        WriteLiteral(Bundle.JavaScript()
+            .Add("~/scripts/jquery-1.10.2.js")
+            .Add("~/scripts/bootstrap.js")
+            .Add("~/scripts/app.js")
+            .Render("~/scripts/thursday_#.js"));
+    }
+</body>
+</html>

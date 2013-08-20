@@ -228,6 +228,7 @@
     <Content Include="Views\Index\register.cshtml" />
     <Content Include="Views\Slide\create.cshtml" />
     <Content Include="Views\Slide\edit.cshtml" />
+    <Content Include="Views\Shared\_layout_full_width.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
