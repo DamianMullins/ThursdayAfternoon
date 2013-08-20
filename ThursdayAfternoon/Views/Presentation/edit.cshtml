@@ -52,17 +52,10 @@
 </div>
 
 @section scripts {
-    <script src="~/Scripts/tinymce/jquery.tinymce.min.js"></script>
-    <script>
-        $(function () {
-            $('textarea.tinymce').tinymce({
-                script_url: '/scripts/tinymce/tinymce.js',
-                schema: 'html5',
-                //inline: true,
-                toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-                menubar: false,
-                statusbar: false
-            });
-        });
-    </script>
+    @{
+        WriteLiteral(Bundle.JavaScript()
+            .Add("~/scripts/tinymce/jquery.tinymce.min.js")
+            .Add("~/scripts/tinymce-config.js")
+            .Render("~/scripts/tinymce_#.js"));
+    }
 }

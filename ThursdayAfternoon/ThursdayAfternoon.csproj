@@ -126,9 +126,10 @@
     <Content Include="Content\fonts\glyphiconshalflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Content\app.css" />
-    <Content Include="Scripts\app.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\tinymce-config.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
