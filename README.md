@@ -10,6 +10,7 @@ Key technologies used
     - Nancy.Authentication.Forms
     - Nancy.Validation.FluentValidation
     - Nancy.Viewengines.Razor
+- TinyIoC
 - Entity Framework code first with a generic repository
 - Fluent Validation
 - Value Injecter
