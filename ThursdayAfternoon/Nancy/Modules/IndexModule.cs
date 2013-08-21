@@ -15,7 +15,6 @@ namespace ThursdayAfternoon.Nancy.Modules
     public class IndexModule : NancyModule
     {
         private readonly IUserService _userService;
-        private readonly IEncryptionService _encryptionService;
 
         //private readonly User _currentUser;
 
@@ -23,10 +22,6 @@ namespace ThursdayAfternoon.Nancy.Modules
         {
             // Dependency Injection
             _userService = userService;
-            _encryptionService = encryptionService;
-
-            // Private Properties
-            //_currentUser = this.CurrentUser();
 
             // Pipelines
             Before += context => context.Request.Path == "/login" ? this.RedirectIfLoggedIn() : null;
