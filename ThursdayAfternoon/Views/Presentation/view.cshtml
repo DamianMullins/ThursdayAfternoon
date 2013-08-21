@@ -27,9 +27,12 @@
             isFirst = false;
         }
     </div>
-
-    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev"><span class="icon-prev"></span></a>
-    <a class="right carousel-control" href="#carousel-example-generic" data-slide="next"><span class="icon-next"></span></a>
+    
+    @if (Model.Slides.Count > 1)
+    {
+        <a class="left carousel-control" href="#" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    }
 </div>
 
-<p><a href="#" class="make-fullscreen hidden-sm" data-target="carousel">Fullscreen</a></p>
+<p><a href="#" class="make-fullscreen hidden-sm" data-target="carousel"><span class="glyphicon glyphicon-fullscreen"></span></a></p>
