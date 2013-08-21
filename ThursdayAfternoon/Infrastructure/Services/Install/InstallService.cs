@@ -14,8 +14,13 @@ namespace ThursdayAfternoon.Infrastructure.Services.Install
         {
             _dbContext = dbContext;
         }
+        
+        public void InstallData()
+        {
+            ExecuteSqlFile(WebHelper.MapPath("~/App_Data/install.sql"));
+        }
 
-        protected virtual void ExecuteSqlFile(string path)
+        private void ExecuteSqlFile(string path)
         {
             var statements = new List<string>();
 
@@ -37,7 +42,7 @@ namespace ThursdayAfternoon.Infrastructure.Services.Install
             }
         }
 
-        protected virtual string ReadNextStatementFromStream(StreamReader reader)
+        private string ReadNextStatementFromStream(StreamReader reader)
         {
             var sb = new StringBuilder();
             while (true)

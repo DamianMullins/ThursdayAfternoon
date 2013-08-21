@@ -6,7 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
-using ThursdayAfternoon.Infrastructure;
+using ThursdayAfternoon.Infrastructure.Extensions;
 using Utilities.Core.Text;
 using AntiXSS = Microsoft.Security.Application;
 

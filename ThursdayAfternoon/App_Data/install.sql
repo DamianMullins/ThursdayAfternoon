@@ -1,6 +1,6 @@
 SET IDENTITY_INSERT [dbo].[Users] ON
-INSERT [dbo].[Users] ([Id], [UserName], [Identifier], [PasswordHash], [PasswordSalt], [Active], [LastLoginDate], [CreatedOn], [ModifiedOn]) 
-VALUES (1, N'damian@lowflyingowls.co.uk', '{8DB5F881-5A47-4FF2-A518-CB8B6559EE59}', N'cb813c71-1cd3-42bb-bb07-0e3394d9ee60', N'JZE+JGA=', 1, NULL, GETDATE(), NULL)
+INSERT [dbo].[Users] ([Id], [UserName], [Identifier], [FirstName], [LastName], [PasswordHash], [PasswordSalt], [Active], [LastLoginDate], [CreatedOn], [ModifiedOn]) 
+VALUES (1, N'damian@lowflyingowls.co.uk', '{8DB5F881-5A47-4FF2-A518-CB8B6559EE59}', N'Damian', N'Mullins', N'1821A12F8B7FFBC87D66C3C18B812B9484667737', N'JZE+JGA=', 1, NULL, GETDATE(), NULL)
 SET IDENTITY_INSERT [dbo].[Users] OFF
 GO
 

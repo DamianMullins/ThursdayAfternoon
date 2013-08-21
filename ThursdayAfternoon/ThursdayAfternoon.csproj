@@ -94,6 +94,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Razor.Unofficial, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Web.Razor.Unofficial.2.0.2\lib\net40\System.Web.Razor.Unofficial.dll</HintPath>
@@ -284,6 +285,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Data\Configuration\ContextConfiguration.cs" />
     <Compile Include="Infrastructure\Data\Configuration\PresentationConfiguration.cs" />
     <Compile Include="Infrastructure\Data\Configuration\UserRoleConfiguration.cs" />
     <Compile Include="Infrastructure\Data\Configuration\UserConfiguration.cs" />
@@ -314,7 +316,8 @@
     <Compile Include="Infrastructure\Validation\Index\RegisterValidator.cs" />
     <Compile Include="Infrastructure\Validation\Index\LoginValidator.cs" />
     <Compile Include="Infrastructure\Validation\Presentation\EditValidator.cs" />
-    <Compile Include="Infrastructure\Converters.cs" />
+    <Compile Include="Infrastructure\Extensions\ObjectExtensions.cs" />
+    <Compile Include="Infrastructure\WebHelper.cs" />
     <Compile Include="Migrations\201307251136474_Initial.cs" />
     <Compile Include="Migrations\201307251136474_Initial.Designer.cs">
       <DependentUpon>201307251136474_Initial.cs</DependentUpon>

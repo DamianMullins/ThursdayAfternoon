@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Linq;
 
-namespace ThursdayAfternoon.Infrastructure
+namespace ThursdayAfternoon.Infrastructure.Extensions
 {
-    public static class Converters
+    public static class ObjectExtensions
     {
         public static string ToCommaSeperatedString(this object obj)
         {

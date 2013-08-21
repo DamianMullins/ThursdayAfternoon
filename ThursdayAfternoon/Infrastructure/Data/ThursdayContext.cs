@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using ThursdayAfternoon.Infrastructure.Data.Configuration;
 using ThursdayAfternoon.Models;
 
 namespace ThursdayAfternoon.Infrastructure.Data
@@ -13,6 +14,7 @@ namespace ThursdayAfternoon.Infrastructure.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ThursdayContext, ContextConfiguration>());
             modelBuilder.AddConfigurations();
             base.OnModelCreating(modelBuilder);
         }
