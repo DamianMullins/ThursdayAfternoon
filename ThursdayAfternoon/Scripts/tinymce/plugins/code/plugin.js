@@ -18,13 +18,17 @@ tinymce.PluginManager.add('code', function(editor) {
 				type: 'textbox',
 				name: 'code',
 				multiline: true,
-				minWidth: 600,
-				minHeight: 500,
+				minWidth: editor.getParam("code_dialog_width", 600),
+				minHeight: editor.getParam("code_dialog_height", 500),
 				value: editor.getContent({source_view: true}),
 				spellcheck: false
 			},
 			onSubmit: function(e) {
-				editor.setContent(e.data.code);
+				editor.undoManager.transact(function() {
+					editor.setContent(e.data.code);
+				});
+	
+				editor.nodeChanged();
 			}
 		});
 	}
