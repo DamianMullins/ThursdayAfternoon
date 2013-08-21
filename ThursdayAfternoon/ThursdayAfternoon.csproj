@@ -295,6 +295,7 @@
     <Compile Include="Infrastructure\Data\IRepository.cs" />
     <Compile Include="Infrastructure\Data\ThursdayContext.cs" />
     <Compile Include="Infrastructure\Extensions\SlideExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\StringExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\UserExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\PresentationExtensions.cs" />
     <Compile Include="Infrastructure\Services\Install\InstallService.cs" />
@@ -347,6 +348,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Nancy\Extensions\HtmlHelperExtensions.cs" />
     <Compile Include="Nancy\Modules\SlideModule.cs" />
+    <Compile Include="ViewModels\Index\IndexViewModel.cs" />
     <Compile Include="ViewModels\Presentation\ViewPresentationViewModel.cs" />
     <Compile Include="ViewModels\Presentation\EditViewModel.cs" />
     <Compile Include="ViewModels\Index\RegisterViewModel.cs" />

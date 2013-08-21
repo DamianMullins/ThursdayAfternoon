@@ -1,4 +1,6 @@
-﻿using Nancy;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.ModelBinding;
 using Nancy.Validation;
@@ -14,16 +16,24 @@ namespace ThursdayAfternoon.Nancy.Modules
     public class IndexModule : NancyModule
     {
         private readonly IUserService _userService;
-        public IndexModule(IUserService userService)
+        private readonly IPresentationService _presentationService;
+
+        public IndexModule(IUserService userService, IPresentationService presentationService)
         {
             // Dependency Injection
             _userService = userService;
+            _presentationService = presentationService;
 
             // Pipelines
             Before += context => context.Request.Path == "/login" ? this.RedirectIfLoggedIn() : null;
 
             // Routes
-            Get["/"] = _ => View["index"];
+            Get["/"] = _ =>
+            {
+                List<Presentation> presentations = _presentationService.Table.Take(3).OrderBy(p => p.CreatedOn).ToList();
+                var model = new IndexViewModel {Presentations = presentations};
+                return View["index", model];
+            };
 
             Get["/login"] = _ => View["login", new LoginViewModel()];
             Post["/login"] = _ =>
