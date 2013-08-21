@@ -1,9 +1,9 @@
 ﻿$(function () {
     $('textarea.tinymce').tinymce({
         script_url: '/scripts/tinymce/tinymce.min.js',
-        schema: 'html5',
-        //inline: true,
-        toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+        convert_fonts_to_spans : false,
+        plugins : 'link code',
+        toolbar: 'undo redo | bold italic | bullist numlist | link unlink | code',
         menubar: false,
         statusbar: false
     });
