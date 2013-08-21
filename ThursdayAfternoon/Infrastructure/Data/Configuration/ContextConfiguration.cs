@@ -13,7 +13,10 @@ namespace ThursdayAfternoon.Infrastructure.Data.Configuration
 
         protected override void Seed(ThursdayContext context)
         {
-            new InstallService(context).InstallData();
+            if (!context.Database.Exists())
+            {
+                new InstallService(context).InstallData();
+            }
         }
     }
 }
