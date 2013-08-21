@@ -5,7 +5,6 @@ using Nancy.Validation;
 using System;
 using ThursdayAfternoon.Infrastructure.Extensions;
 using ThursdayAfternoon.Infrastructure.Services;
-using ThursdayAfternoon.Infrastructure.Services.Security;
 using ThursdayAfternoon.Models;
 using ThursdayAfternoon.Nancy.Extensions;
 using ThursdayAfternoon.ViewModels.Index;
@@ -15,10 +14,7 @@ namespace ThursdayAfternoon.Nancy.Modules
     public class IndexModule : NancyModule
     {
         private readonly IUserService _userService;
-
-        //private readonly User _currentUser;
-
-        public IndexModule(IUserService userService, IEncryptionService encryptionService)
+        public IndexModule(IUserService userService)
         {
             // Dependency Injection
             _userService = userService;
