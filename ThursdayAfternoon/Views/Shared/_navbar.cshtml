@@ -1,17 +1,18 @@
 ﻿@using ThursdayAfternoon.Infrastructure.Extensions
 @using ThursdayAfternoon.Nancy.Extensions
 
-<div class="navbar">
+<nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-
-        <a class="navbar-brand" href="@Url.Content("~/")">Thursday Afternoon</a>
-
-        <div class="nav-collapse collapse navbar-responsive-collapse">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="@Url.Content("~/")">Thursday Afternoon</a>
+        </div>
+        
+    <div class="collapse navbar-collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="@Url.Content("~/")">Home</a></li>
                 <li><a href="@Url.Content("~/presentation")">Presentations</a></li>
@@ -32,5 +33,5 @@
                 }
             </ul>
         </div><!--/.nav-collapse -->
-    </div><!-- /.container -->
-</div><!-- /.navbar -->
+    </div>
+</nav><!-- /.navbar -->
