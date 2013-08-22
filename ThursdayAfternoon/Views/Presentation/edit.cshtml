@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 <label for="Description">Description</label>
-                @Html.TextArea("Description", "form-control tinymce", 10, 15)
+                @Html.TextArea("Description", "form-control", 10, 15)
             </div>
 
             @Html.Hidden("CreatedOn")
@@ -50,12 +50,3 @@
         </ul>
     </div>
 </div>
-
-@section scripts {
-    @{
-        WriteLiteral(Bundle.JavaScript()
-            .Add("~/scripts/tinymce/jquery.tinymce.min.js")
-            .Add("~/scripts/tinymce-config.js")
-            .Render("~/scripts/tinymce_#.js"));
-    }
-}
