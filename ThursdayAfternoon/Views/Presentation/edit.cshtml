@@ -32,21 +32,21 @@
         </form>
     </div>
     <div class="col-lg-4">
-        <p>Slides</p>
-        <p><a href="@Url.Content("~/slide/create/" + @Model.Id)" class="btn">Add new Slide</a></p>
+        <h3>Slides</h3>
+        <p><a href="@Url.Content("~/slide/create/" + @Model.Id)" class="btn btn-default btn-sm">Add new Slide</a></p>
   
-        <ul>
+        <div class="list-group">
         @if (slideCount > 0)
         {
             for (int i = 0; i < slideCount; i++)
             {
-                <li><a href="@Url.Content("~/slide/edit/" + @Model.Id + "/" + @Model.SlideIds[i])" class="btn">Slide @(i + 1)</a></li>
+                <a href="@Url.Content("~/slide/edit/" + @Model.Id + "/" + @Model.SlideIds[i])" class="list-group-item">Slide @(i + 1)</a>
             }
         }
         else
         {
             <li>No Slides</li>
         }
-        </ul>
+        </div>
     </div>
 </div>
