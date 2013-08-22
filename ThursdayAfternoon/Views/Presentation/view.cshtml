@@ -8,12 +8,15 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-title">@Model.Title</h1>
+            <h1 class="page-title">
+                @Model.Title 
+                <small><a href="#" id="fullscreen" data-target=".carousel" data-toggle="tooltip" title="Fullscreen"><span class="glyphicon glyphicon-fullscreen"></span></a></small>
+            </h1>
         </div>
     </div>
 </div>
 
-<div id="carousel-example-generic" class="carousel slide">
+<div id="presentation" class="carousel slide">
     <div class="carousel-inner">
         @foreach (var slide in Model.Slides)
         {
@@ -29,9 +32,7 @@
     
     @if (Model.Slides.Count > 1)
     {
-        <a class="left carousel-control" href="#" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-        <a class="right carousel-control" href="#" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        <a class="left carousel-control" href="#presentation" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#presentation" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
     }
 </div>
-
-<p><a href="#" class="make-fullscreen hidden-sm" data-target="carousel"><span class="glyphicon glyphicon-fullscreen"></span></a></p>
