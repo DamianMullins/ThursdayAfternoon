@@ -3,9 +3,12 @@
         $('form:first').find('input:first').focus();
     }
 
-    $('.make-fullscreen').on('click', function (e) {
+    $('#fullscreen').on('click', function (e) {
         var target = $(this).data('target');
         e.preventDefault();
-        $('.' + target).toggleClass('fullscreen gradient-bg');
+        $(target).toggleClass('fullscreen gradient-bg');
+        $('.container').toggleClass('top-left');
     });
+
+    $('[data-toggle]').tooltip();
 });

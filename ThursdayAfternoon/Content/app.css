@@ -12,13 +12,17 @@ body {
 }
 
 
-/***** Generic ******************************/
+/***** General ******************************/
 body,
 .gradient-bg {
   background: #2f3238;
   background: -webkit-radial-gradient(10% 0, farthest-side ellipse, rgba(47,50,56,0.91), rgba(20, 27, 41, 0.91), rgba(47,50,56,0.91)), url("images/bgnoise_lg_dark.png");
 }
 
+/***** Helpers ******************************/
+#fullscreen {
+  color: #de5e60;
+}
 .fullscreen {
   position: absolute;
   top: 0;
@@ -26,6 +30,13 @@ body,
   width: 100%;
   height: 100%;
   z-index: 1000;
+}
+
+.top-left {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  z-index: 1001;
 }
 
 
