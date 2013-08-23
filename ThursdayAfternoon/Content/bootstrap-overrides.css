@@ -1,13 +1,14 @@
-﻿body {
-}
-
-* {
+﻿* {
   border-radius: 0 !important;
 }
 
-.carousel-inner > .item {
-  min-height: 600px;
+.carousel-inner {
+  overflow: visible;
 }
+
+  .carousel-inner > .item {
+    min-height: 600px;
+  }
 
 .carousel-caption {
   text-align: left;
